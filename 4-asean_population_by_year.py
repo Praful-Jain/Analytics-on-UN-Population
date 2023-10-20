@@ -11,7 +11,7 @@ for row in population_reader:
     year = row['Year']
     country = row['Region']
     if year >= '2004' and year <= '2014' and country in ASEAN_Countries:
-        asean_population[country].append(row['Population'])
+        asean_population[country].append(float(row['Population']))
 
 asean_population = {key: value for key, value in asean_population.items() if value}
 
