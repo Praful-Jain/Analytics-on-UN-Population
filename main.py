@@ -12,7 +12,7 @@ def reader_function(csv_file):
 population_reader = reader_function(csv_file)
 
 
-ASEAN_Countries = [ 'Thailand' ,	 'Vietnam', 'Indonesia', 'Cambodia', 	 'Brunei', 	 'Myanmar',	 
-                   'Malaysia', 	 'Laos', 'Philippines','Singapore']
+ASEAN_Countries = [ 'Thailand' ,	 'Viet Nam' , 'Indonesia', 'Cambodia', 	 'Brunei Darussalam', 	 'Myanmar',	 
+                   'Malaysia', 	 'Lao People\'s Democratic Republic', 'Philippines','Singapore']
 
 SAARC_Countries = [ 'Afghanistan', 'Bangladesh', 'Bhutan', 'India' , 'Maldives', 'Nepal', 'Pakistan', 'Sri Lanka']
