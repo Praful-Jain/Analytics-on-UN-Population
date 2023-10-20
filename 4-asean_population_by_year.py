@@ -1,6 +1,5 @@
 import csv
 import matplotlib.pyplot as plt
-import numpy as np
 from main import population_reader,ASEAN_Countries
 
 asean_population = { key : [] for key in ASEAN_Countries}
@@ -19,26 +18,22 @@ for country in asean_population:
     print(country , "-----")
     print(asean_population[country])
     print()
-    
-
+        
 # Plotting the grouped bar chart
-years = [str(i) for i in range(2004, 2015)]
-fig, ax = plt.subplots()
-bar_width = 0.1                 # width of each bar
-pos = np.arange(len(years))     # creates an array of values from 0 to the length of the years.
+countries = list(asean_population.keys())
+years = range(2004, 2015)
 
-# [i * bar_width] adds an offset to the x-coordinates of the bars for each country to pos.
-# this is done to plot bars on correct position on x-axis 
-for i, country in enumerate(asean_population):
-    ax.bar(pos + i * bar_width, asean_population[country], width=bar_width, label=country)
+# Setting the positions and width for the bars
+pos = list(range(len(years)))
+w = 0.1
 
-# Adding labels and title
-ax.set_xlabel('Years')
-ax.set_ylabel('Population')
-ax.set_title('ASEAN Population from 2004 to 2014')
-ax.set_xticks(pos + bar_width * (len(asean_population) / 2 - 0.5))    # to ensure proper positioning of the years on the x-axis.
-ax.set_xticklabels(years)       # x-axis labels
-ax.legend()
+# Creating the grouped bar chart
+for i, country in enumerate(countries):
+    plt.bar([p + w * i for p in pos], asean_population[country], width=w, label=country)
 
-# Display the plot
+plt.xlabel('Years')
+plt.ylabel('Population')
+plt.title('ASEAN Countries Population Over the Years (2004-2014)')
+plt.xticks([p + w * (len(countries) / 2 - 0.5) for p in pos], years)
+plt.legend()
 plt.show()
